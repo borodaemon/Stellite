@@ -74,6 +74,11 @@ library archives (`.a`).
 [^] On Debian/Ubuntu `libgtest-dev` only includes sources and headers. You must
 build the library binary manually. This can be done with the following command ```sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake . && sudo make && sudo mv libg* /usr/lib/ ```
 
+
+### Info
+
+This is an alpha build, there will be bugs, if there are please do make an issue post explaining it here on github. This alpha will work on linux and most probably on MacOS with some tweaking here and there. If you need help with it please do join our discord channel :- https://discord.gg/dPzrZj
+
 ### Build instructions
 
 Stellite uses the CMake build system and a top-level [Makefile](Makefile) that
@@ -85,7 +90,7 @@ invokes cmake commands as needed.
 * Change to the root of the source code directory and build:
 
         cd Stellite
-        make
+        ./buid.sh
 
     *Optional*: If your machine has several cores and enough memory, enable
     parallel build by running `make -j<number of threads>` instead of `make`. For
@@ -120,52 +125,7 @@ invokes cmake commands as needed.
 
 #### On Windows:
 
-Binaries for Windows are built on Windows using the MinGW toolchain within
-[MSYS2 environment](http://msys2.github.io). The MSYS2 environment emulates a
-POSIX system. The toolchain runs within the environment and *cross-compiles*
-binaries that can run outside of the environment as a regular Windows
-application.
-
-**Preparing the Build Environment**
-
-* Download and install the [MSYS2 installer](http://msys2.github.io), either the 64-bit or the 32-bit package, depending on your system.
-* Open the MSYS shell via the `MSYS2 Shell` shortcut
-* Update packages using pacman:  
-
-        pacman -Syuu  
-
-* Exit the MSYS shell using Alt+F4  
-* Edit the properties for the `MSYS2 Shell` shortcut changing "msys2_shell.bat" to "msys2_shell.cmd -mingw64" for 64-bit builds or "msys2_shell.cmd -mingw32" for 32-bit builds
-* Restart MSYS shell via modified shortcut and update packages again using pacman:  
-
-        pacman -Syuu  
-
-
-* Install dependencies:
-
-    To build for 64-bit Windows:
-
-        pacman -S mingw-w64-x86_64-toolchain make mingw-w64-x86_64-cmake mingw-w64-x86_64-boost
-
-    To build for 32-bit Windows:
-
-        pacman -S mingw-w64-i686-toolchain make mingw-w64-i686-cmake mingw-w64-i686-boost
-
-* Open the MingW shell via `MinGW-w64-Win64 Shell` shortcut on 64-bit Windows
-  or `MinGW-w64-Win64 Shell` shortcut on 32-bit Windows. Note that if you are
-  running 64-bit Windows, you will have both 64-bit and 32-bit MinGW shells.
-
-**Building**
-
-* If you are on a 64-bit system, run:
-
-        make release-static-win64
-
-* If you are on a 32-bit system, run:
-
-        make release-static-win32
-
-* The resulting executables can be found in `build/release/bin`
+Alpha is not ready for windows yet. Stay tuned!
 
 ### Building Portable Statically Linked Binaries
 
@@ -176,8 +136,6 @@ By default, in either dynamically or statically linked builds, binaries target t
 * ```make release-static-armv8``` builds binaries on Linux portable across POSIX systems on armv8 processors
 * ```make release-static-armv7``` builds binaries on Linux portable across POSIX systems on armv7 processors
 * ```make release-static-armv6``` builds binaries on Linux portable across POSIX systems on armv6 processors
-* ```make release-static-win64``` builds binaries on 64-bit Windows portable across 64-bit Windows systems
-* ```make release-static-win32``` builds binaries on 64-bit or 32-bit Windows portable across 32-bit Windows systems
 
 ## Running Stellited
 
