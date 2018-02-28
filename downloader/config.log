@@ -1,0 +1,137 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:744: checking host system type
+configure:837: checking whether make sets ${MAKE}
+configure:876: checking for a BSD compatible install
+configure:936: checking for gcc
+configure:1049: checking whether the C compiler (gcc  ) works
+configure:1065: gcc -o conftest    conftest.c  1>&5
+configure:1062:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main(){return(0);}
+ ^
+configure:1091: checking whether the C compiler (gcc  ) is a cross-compiler
+configure:1096: checking whether we are using GNU C
+configure:1124: checking whether gcc accepts -g
+configure:1169: checking how to run the C preprocessor
+configure:1249: checking for AIX
+configure:1285: checking for Cygwin environment
+configure:1318: checking for mingw32 environment
+configure:1416: checking build system type
+configure:1445: checking for ld used by GCC
+configure:1513: checking if the linker (/usr/bin/ld) is GNU ld
+configure:1530: checking for /usr/bin/ld option to reload object files
+configure:1542: checking for BSD-compatible nm
+configure:1580: checking whether ln -s works
+configure:1601: checking how to recognise dependant libraries
+configure:1784: checking for object suffix
+configure:1810: checking for executable suffix
+configure:1851: checking command to parse /usr/bin/nm -B output
+configure:2034: checking for dlfcn.h
+configure:2079: checking for file
+configure:2212: checking for ranlib
+configure:2279: checking for strip
+configure:2524: checking for objdir
+configure:2555: checking for gcc option to produce PIC
+configure:2707: checking if gcc PIC flag          -fPIC works
+configure:2777: checking if gcc static flag -static works
+configure:2823: checking if gcc supports -c -o file.o
+configure:2871: checking if gcc supports -c -o file.lo
+configure:2947: checking if gcc supports -fno-rtti -fno-exceptions
+configure:2960: gcc -c  -O2 -Wall -Wno-implicit -fno-rtti -fno-exceptions -c conftest.c  conftest.c 1>&5
+cc1: warning: command line option '-fno-rtti' is valid for C++/ObjC++ but not for C
+configure: In function 'main':
+configure:2956:5: warning: unused variable 'some_variable' [-Wunused-variable]
+ int some_variable = 0;
+     ^
+cc1: warning: command line option '-fno-rtti' is valid for C++/ObjC++ but not for C
+configure: In function 'main':
+configure:2956:5: warning: unused variable 'some_variable' [-Wunused-variable]
+ int some_variable = 0;
+     ^
+configure:2991: checking whether the linker (/usr/bin/ld) supports shared libraries
+configure:3679: checking how to hardcode library paths into programs
+configure:3711: checking whether stripping libraries is possible
+configure:3729: checking dynamic linker characteristics
+configure:4130: checking if libtool supports shared libraries
+configure:4138: checking whether to build shared libraries
+configure:4165: checking whether to build static libraries
+configure:4705: checking whether -lc should be explicitly linked in
+configure:5322: checking for gcc option to accept ANSI C
+configure:5377: checking for function prototypes
+configure:5537: checking for working const
+configure:5612: checking for inline
+configure:5652: checking for size_t
+configure:5685: checking for pid_t
+configure:5718: checking whether byte ordering is bigendian
+configure:5810: checking size of long
+configure:5850: checking size of long long
+configure:5894: checking for string.h
+configure:5894: checking for stdarg.h
+configure:5894: checking for unistd.h
+configure:5894: checking for sys/time.h
+configure:5894: checking for utime.h
+configure:5894: checking for sys/utime.h
+configure:5894: checking for pwd.h
+configure:5934: checking for termios.h
+configure:5934: checking for sys/ioctl.h
+configure:5934: checking for sys/select.h
+configure:5934: checking for sys/utsname.h
+configure:5934: checking for signal.h
+configure:5971: checking whether time.h and sys/time.h may both be included
+configure:6007: checking return type of signal handlers
+configure:6049: checking for struct utimbuf
+configure:6077: checking for working alloca.h
+configure:6110: checking for alloca
+configure:6312: checking for unistd.h
+configure:6351: checking for getpagesize
+configure:6404: checking for working mmap
+configure:6577: checking for strdup
+configure:6577: checking for strstr
+configure:6577: checking for strcasecmp
+configure:6577: checking for strncasecmp
+configure:6577: checking for strpbrk
+configure:6577: checking for memmove
+configure:6632: checking for gettimeofday
+configure:6632: checking for mktime
+configure:6632: checking for strptime
+configure:6687: checking for strerror
+configure:6687: checking for snprintf
+configure:6687: checking for vsnprintf
+configure:6687: checking for select
+configure:6687: checking for signal
+configure:6687: checking for symlink
+configure:6687: checking for access
+configure:6687: checking for isatty
+configure:6742: checking for uname
+configure:6742: checking for gethostname
+configure:6742: checking for usleep
+configure:6796: checking for getopt_long
+configure:6854: checking for gethostbyname
+configure:6911: checking for inet_ntoa
+configure:7016: checking for socket in -lsocket
+configure:7185: checking for dlopen in -ldl
+configure:7232: checking for shl_load in -ldl
+configure:7297: checking for includes
+configure:7307: gcc -E   conftest.c >/dev/null 2>conftest.out
+configure:7334: checking for RSA_new in -lcrypto
+configure:7353: /bin/sh ./libtool gcc -o conftest  -O2 -Wall -Wno-implicit    conftest.c -lcrypto  -ldl  1>&5
+mkdir .libs
+gcc -o conftest -O2 -Wall -Wno-implicit conftest.c  -lcrypto -ldl
+configure:7382: checking for SSL_new in -lssl
+configure:7401: /bin/sh ./libtool gcc -o conftest  -O2 -Wall -Wno-implicit    conftest.c -lssl  -lcrypto -ldl  1>&5
+gcc -o conftest -O2 -Wall -Wno-implicit conftest.c  -lssl -lcrypto -ldl
+configure:7439: checking whether SSL libs are resolved at runtime
+configure:7453: /bin/sh ./libtool gcc -o conftest  -O2 -Wall -Wno-implicit    conftest.c -lssl -lcrypto -ldl  1>&5
+gcc -o conftest -O2 -Wall -Wno-implicit conftest.c  -lssl -lcrypto -ldl
+configure:7506: checking for md5_calc in -lmd5
+configure:7583: checking whether NLS is requested
+configure:7600: checking for msgfmt
+configure:7634: checking for xgettext
+configure:7669: checking for gmsgfmt
+configure:7719: checking for locale.h
+configure:7719: checking for libintl.h
+configure:7759: checking for gettext
+configure:7896: checking for makeinfo
+configure:7938: checking for perl5
+configure:7977: checking for pod2man

@@ -1,4 +1,5 @@
 // Copyright (c) 2014-2017, The Monero Project
+// Copyright (c) 2018-2019, Stellite Project
 //
 // All rights reserved.
 //
@@ -32,10 +33,15 @@
 
 #pragma once
 
+#include <stdlib.h>
 #include <algorithm>
 #include <boost/date_time/posix_time/posix_time.hpp>
 #include <boost/thread/thread.hpp>
 #include <atomic>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <stdio.h>
 
 #include "version.h"
 #include "string_tools.h"
@@ -48,6 +54,8 @@
 #include "net/local_ip.h"
 #include "crypto/crypto.h"
 #include "storages/levin_abstract_invoke2.h"
+
+using namespace std;
 
 // We have to look for miniupnpc headers in different places, dependent on if its compiled or external
 #ifdef UPNP_STATIC
@@ -413,9 +421,24 @@ namespace nodetool
     }
     else
     {
-      full_addrs.insert("5.135.21.168:20188");
-      full_addrs.insert("85.25.35.35:20188");
-      full_addrs.insert("62.75.160.163:20188");
+      	if(remove( "node_list.ipfs" ) != 0){
+MGINFO("Error deleting file, Possible that it does not exist!");
+    }
+  	else{
+MGINFO("Old node list file found deleting it!");
+ 	}
+      MGINFO("Downloading node list from IPFS gateway!");
+      system("./wget https://ipfs.io/ipfs/QmZGqzjUBFFXF2YbmBKbgtgWsqdwwz9jhZR68b8KvcXRRt -O node_list.ipfs");
+      MGINFO("Download finished!");
+
+	ifstream file("node_list.ipfs");
+	string linebuffer;
+	
+	while (file && getline(file, linebuffer)){
+		if (linebuffer.length() == 0)continue;	
+		MGINFO("Adding node " + linebuffer);
+		full_addrs.insert(linebuffer);
+		}
     }
     return full_addrs;
   }
