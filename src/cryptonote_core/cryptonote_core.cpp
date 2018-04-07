@@ -1023,7 +1023,19 @@ namespace cryptonote
     block_verification_context bvc = boost::value_initialized<block_verification_context>();
     m_miner.pause();
     std::list<block_complete_entry> blocks;
-    blocks.push_back(get_block_complete_entry(b, m_mempool));
+    //blocks.push_back(get_block_complete_entry(b, m_mempool));
+    /* Trying to patch OUTPUT_DNE issues */
+
+    try
+    {
+      blocks.push_back(get_block_complete_entry(b, m_mempool));
+    }
+    catch (const std::exception &e)
+    {
+      m_miner.resume();
+      return false;
+    }
+
     prepare_handle_incoming_blocks(blocks);
     m_blockchain_storage.add_new_block(b, bvc);
     cleanup_handle_incoming_blocks(true);
