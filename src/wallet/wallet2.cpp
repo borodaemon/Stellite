@@ -3511,7 +3511,7 @@ int wallet2::get_fee_algorithm()
   if (use_fork_rules(5, 0))
     return 2;
   if (use_fork_rules(3, -720 * 14))
-   return 1;
+   return 0;
   return 0;
 }
 //----------------------------------------------------------------------------------------------------
