@@ -3507,11 +3507,11 @@ uint64_t wallet2::get_per_kb_fee()
 //----------------------------------------------------------------------------------------------------
 int wallet2::get_fee_algorithm()
 {
-  // changes at v3 and v5
+  // changes at v4 and v5
   if (use_fork_rules(5, 0))
     return 2;
-  if (use_fork_rules(3, -720 * 14))
-   return 1;
+  if (use_fork_rules(4, -720 * 14))
+   return 0;
   return 0;
 }
 //----------------------------------------------------------------------------------------------------
