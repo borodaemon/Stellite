@@ -1478,13 +1478,13 @@ bool Blockchain::get_blocks(uint64_t start_offset, size_t count, std::list<std::
           LOG_ERROR("Invalid block");
           return false;
         }
-    } catch (const BLOCK_DNE& e)
+    } 
+  }
+  catch (const BLOCK_DNE& e)
     {
            LOG_ERROR("Invalid block");
            return false;
     }
-  }
-
   return true;
 }
 //------------------------------------------------------------------
