@@ -1463,20 +1463,28 @@ bool Blockchain::get_blocks(uint64_t start_offset, size_t count, std::list<std::
 //------------------------------------------------------------------
 bool Blockchain::get_blocks(uint64_t start_offset, size_t count, std::list<std::pair<cryptonote::blobdata,block>>& blocks) const
 {
-  LOG_PRINT_L3("Blockchain::" << __func__);
+  LOG_PRINT_L3("Blockchain::" << func);
   CRITICAL_REGION_LOCAL(m_blockchain_lock);
   if(start_offset > m_db->height())
     return false;
 
   for(size_t i = start_offset; i < start_offset + count && i < m_db->height();i++)
-  {
-    blocks.push_back(std::make_pair(m_db->get_block_blob_from_height(i), block()));
-    if (!parse_and_validate_block_from_blob(blocks.back().first, blocks.back().second))
+  { 
+      try
     {
-      LOG_ERROR("Invalid block");
-      return false;
+        blocks.push_back(std::make_pair(m_db->get_block_blob_from_height(i), block()));
+        if (!parse_and_validate_block_from_blob(blocks.back().first, blocks.back().second))
+        {
+          LOG_ERROR("Invalid block");
+          return false;
+        }
+    } catch (const BLOCK_DNE& e)
+    {
+           LOG_ERROR("Invalid block");
+           return false;
     }
   }
+
   return true;
 }
 //------------------------------------------------------------------
